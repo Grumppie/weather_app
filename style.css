@@ -18,13 +18,12 @@
 
 .weather__header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
 input {
     border: none;
-    background: #1e1e1e;
     outline: none;
     color: #fff;
     padding: 0.5rem 2.5rem;
@@ -45,6 +44,10 @@ input::placeholder {
     top: 10px;
     font-size: 15px;
     color: #fff;
+}
+
+.weather__searchform {
+    background-color: #494949;
 }
 
 .weather__units {
@@ -70,7 +73,7 @@ input::placeholder {
 }
 
 .weather__forecast {
-    background: #1e1e1e;
+    background-color: #494949;
     display: inline-block;
     padding: 0.5rem 1rem;
     border-radius: 30px;
@@ -104,7 +107,7 @@ input::placeholder {
 .weather__card {
     display: flex;
     align-items: center;
-    background: #1e1e1e;
+    background-color: #494949;
     padding: 1rem;
     border-radius: 10px;
 }
