@@ -56,8 +56,8 @@ weather_unit_celsius.addEventListener('click', e => {
     loader.style.display = "block";
     if (units !== 'metric') {
         units = 'metric';
-        if (latitude === null) getWeather(currCity);
-        else getWeather(latitude, longitude);
+        if (latitude !== null) getWeather(latitude, longitude);
+        else getWeather(currCity);
     }
     else {
         loader.style.display = "none";
@@ -68,8 +68,8 @@ weather_unit_farenheit.addEventListener('click', e => {
     loader.style.display = "block";
     if (units !== 'imperial') {
         units = 'imperial';
-        if (latitude === null) getWeather(currCity);
-        else getWeather(latitude, longitude);
+        if (latitude !== null) getWeather(latitude, longitude);
+        else getWeather(currCity);
     }
     else {
         loader.style.display = "none";
@@ -105,9 +105,9 @@ function displayWeatherData(data) {
     city.innerHTML = `${data.name}, ${convertCountryCode(data.sys.country)}`;
     datetime.innerHTML = convertTimeStamp(data.dt, data.timezone);
     weather__forecast.innerHTML = `<p>${data.weather[0].main}`;
-    weather__temperature.innerHTML = `${data.main.temp.toFixed()}&#176`;
+    weather__temperature.innerHTML = `${data.main.temp.toFixed()}&#176${units === "metric" ? "C" : "F"}`;
     weather__icon.innerHTML = `   <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png" />`;
-    weather__minmax.innerHTML = `<p>Min: ${data.main.temp_min.toFixed()}&#176</p><p>Max: ${data.main.temp_max.toFixed()}&#176</p>`;
+    weather__minmax.innerHTML = `<p>Min: ${data.main.temp_min.toFixed()}&#176</p><p>Max: ${data.main.temp_max.toFixed()}&#176${units === "metric" ? "C" : "F"}</p>`;
     weather__realfeel.innerHTML = `${data.main.feels_like.toFixed()}&#176`;
     weather__humidity.innerHTML = `${data.main.humidity}%`;
     weather__wind.innerHTML = `${data.wind.speed} ${units === "imperial" ? "mph" : "m/s"}`;
