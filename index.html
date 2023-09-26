@@ -11,12 +11,15 @@
 
 <body>
     <div class="container">
+        <div id="error"></div>
         <div class="weather__header">
+            <button class="location__button">Current Location <i class="fa-solid fa-globe"></i></button>
             <form class="weather__search">
                 <input type="text" placeholder="Search for a city..." class="weather__searchform">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </form>
         </div>
+        <div class="loader" id="loader"></div>
         <div class="weather__body">
             <h1 class="weather__city"></h1>
             <div class="weather__datetime">
@@ -25,6 +28,10 @@
             <div class="weather__icon">
             </div>
             <p class="weather__temperature">
+            <div class="weather__units">
+                <span class="weather_unit_celsius">&#176C</span>
+                <span class="weather_unit_farenheit">&#176F</span>
+            </div>
             </p>
             <div class="weather__minmax">
                 <p>Min: 12&#176C</p>

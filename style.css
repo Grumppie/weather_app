@@ -14,21 +14,58 @@
     width: 40%;
     margin: 4rem auto;
     border-radius: 10px;
+    position: relative;
 }
+
+#error {
+    background: #ca4a4a;
+    color: #fff;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.loader {
+    margin: 2rem auto;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #3498db;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    display: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 
 .weather__header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
-input {
+.weather__header input,
+.weather__header button {
     border: none;
     outline: none;
     color: #fff;
     padding: 0.5rem 2.5rem;
     border-radius: 5px;
+    background-color: #494949;
+    cursor: pointer;
+    margin: 0.5rem;
 }
+
+
 
 input::placeholder {
     color: #fff;
@@ -44,11 +81,9 @@ input::placeholder {
     top: 10px;
     font-size: 15px;
     color: #fff;
+    margin: 0.5rem;
 }
 
-.weather__searchform {
-    background-color: #494949;
-}
 
 .weather__units {
     font-size: 1.5rem;
@@ -60,6 +95,15 @@ input::placeholder {
 
 .weather__units span:first-child {
     margin-right: 0.5rem;
+}
+
+.weather_unit_celsius,
+.weather_unit_farenheit {
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: #494949;
+    cursor: pointer;
 }
 
 .weather__body {
@@ -85,6 +129,7 @@ input::placeholder {
 
 .weather__temperature {
     font-size: 1.75rem;
+    margin-bottom: 1rem;
 }
 
 .weather__minmax {
@@ -121,14 +166,18 @@ input::placeholder {
     font-size: 14px;
 }
 
-@media(max-width: 936px) {
+@media (max-width: 1323px) {
+    .weather__header {
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 932px) {
     .container {
         width: 90%;
     }
 
-    .weather__header {
-        flex-direction: column;
-    }
+
 
     .weather__units {
         margin-top: 1rem;
