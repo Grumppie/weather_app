@@ -3,6 +3,7 @@ let currCity = "Pune";
 let units = "metric";
 let latitude = null;
 let longitude = null;
+let useCoordinates = false;
 
 // Selectors
 let city = document.querySelector(".weather__city");
@@ -32,6 +33,7 @@ location__button.addEventListener('click', e => {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
         getWeather(latitude, longitude);
+        useCoordinates = true
     }, error => {
         if (error.code === 1) {
             console.error("User denied access to location.");
@@ -50,13 +52,14 @@ document.querySelector(".weather__search").addEventListener('submit', e => {
     currCity = search.value;
     getWeather(currCity);
     search.value = "";
+    useCoordinates = false
 });
 
 weather_unit_celsius.addEventListener('click', e => {
     loader.style.display = "block";
     if (units !== 'metric') {
         units = 'metric';
-        if (latitude !== null) getWeather(latitude, longitude);
+        if (useCoordinates) getWeather(latitude, longitude);
         else getWeather(currCity);
     }
     else {
@@ -68,7 +71,7 @@ weather_unit_farenheit.addEventListener('click', e => {
     loader.style.display = "block";
     if (units !== 'imperial') {
         units = 'imperial';
-        if (latitude !== null) getWeather(latitude, longitude);
+        if (useCoordinates) getWeather(latitude, longitude);
         else getWeather(currCity);
     }
     else {
