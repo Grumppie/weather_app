@@ -33,7 +33,7 @@ location__button.addEventListener('click', e => {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
         getWeather(latitude, longitude);
-        useCoordinates = true
+        useCoordinates = true;
     }, error => {
         if (error.code === 1) {
             console.error("User denied access to location.");
@@ -52,7 +52,7 @@ document.querySelector(".weather__search").addEventListener('submit', e => {
     currCity = search.value;
     getWeather(currCity);
     search.value = "";
-    useCoordinates = false
+    useCoordinates = false;
 });
 
 weather_unit_celsius.addEventListener('click', e => {
@@ -134,7 +134,6 @@ function getWeather(cityOrLat, lon) {
             if (!res.ok) {
                 errorElement.style.display = "block";
                 errorElement.textContent = `Weather data not found. Please enter a valid location.`;
-                return Promise.reject("Weather data not found.");
             }
             return res.json();
         })
